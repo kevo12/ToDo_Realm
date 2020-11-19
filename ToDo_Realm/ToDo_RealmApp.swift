@@ -7,11 +7,19 @@
 
 import SwiftUI
 
+
 @main
 struct ToDo_RealmApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(content: "", todo: ToDoModel(toDoModelRealm: ToDoModelRealm()))
+                .environmentObject(ToDoViewModel())
         }
     }
 }
+
+
+
+
